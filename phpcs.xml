@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Praesum" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+	<description>Acme WordPress Multisite Coding Standard</description>
+
+	<!-- How to scan -->
+	<!-- Allow only PHP files. -->
+	<arg name="extensions" value="php"/>
+	<!-- Enables parallel processing when available for faster results -->
+	<arg name="parallel" value="8"/>
+
+	<!-- What to scan -->
+	<file>./plugins/acme/</file>
+	<file>./themes/acme/</file>
+
+	<!-- Exclude patterns - we don't want to scan these files. -->
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
+	<exclude-pattern>*.min.css</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/dist/*</exclude-pattern>
+
+	<!-- Additional exclude patterns specific to this project -->
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/languages/*</exclude-pattern>
+
+	<!-- Rules: WordPress Core -->
+	<rule ref="WordPress-Core">
+		<!-- Allow array short syntax -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+
+		<!-- We may want specific file names -->
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+
+	<!-- Rules: WordPress Docs -->
+	<rule ref="WordPress-Docs">
+		<!-- Sometimes we don't need package tags -->
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+		<!-- Docblocks on every function are superfluous -->
+		<exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+		<exclude name="Squiz.Commenting.VariableComment.Missing"/>
+		<!-- Short description and capitalization rules are noisy -->
+		<exclude name="Generic.Commenting.DocComment.MissingShort"/>
+		<exclude name="Generic.Commenting.DocComment.LongNotCapital"/>
+	</rule>
+
+	<!-- Rules: WordPress Extra -->
+	<rule ref="WordPress-Extra">
+		<!-- Ignore short array syntax -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+
+		<!-- Don't require punctuation after inline comments -->
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+
+		<!-- Comment punctuation doesn't matter -->
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop"/>
+
+		<!-- This nonce sniff almost never works right -->
+		<exclude name="WordPress.Security.NonceVerification.Missing"/>
+	</rule>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="acme"/>
+				<element value="ACME"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Sometimes we need to override globals -->
+	<rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
+		<type>warning</type>
+	</rule>
+</ruleset>
+
+

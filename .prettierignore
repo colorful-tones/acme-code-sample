@@ -1,0 +1,10 @@
+# Ignore PHP files - use PHPCS/PHPCBF instead
+*.php
+
+# Ignore vendor and node_modules
+vendor/
+node_modules/
+
+# Ignore build directories
+build/
+dist/

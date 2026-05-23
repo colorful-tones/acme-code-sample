@@ -1,0 +1,23 @@
+{
+	"name": "@acme/acme-project",
+	"version": "1.0.0",
+	"description": "ACME WordPress Project - Unified workspace for theme and plugin assets",
+	"private": true,
+	"workspaces": [
+		"themes/acme",
+		"plugins/acme"
+	],
+	"scripts": {
+		"build": "npm run build:blocks",
+		"start": "npm run start:blocks",
+		"build:blocks": "npm run build --workspace=@acme/plugin",
+		"start:blocks": "npm run start --workspace=@acme/plugin",
+		"lint": "npm run lint --workspaces --if-present",
+		"lint:fix": "npm run format --workspace=@acme/plugin"
+	},
+	"license": "UNLICENSED",
+	"engines": {
+		"node": ">=22.21.1",
+		"npm": ">=10.9.4"
+	}
+}
