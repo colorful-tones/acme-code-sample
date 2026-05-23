@@ -55,6 +55,10 @@
 			}
 		},
 		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\nrequire_once ABSPATH . 'wp-admin/includes/file.php';\nrequire_once ABSPATH . 'wp-admin/includes/media.php';\nrequire_once ABSPATH . 'wp-admin/includes/image.php';\n$path = '/wordpress/wp-content/themes/acme/assets/images/acme-logo-full.svg';\nif (file_exists($path)) {\n    $up = wp_upload_bits('acme-logo-full.svg', null, file_get_contents($path));\n    if (empty($up['error'])) {\n        $id = wp_insert_attachment(['post_mime_type'=>'image/svg+xml','post_title'=>'Acme Logo','post_status'=>'inherit'], $up['file']);\n        update_option('site_logo', $id);\n        set_theme_mod('custom_logo', $id);\n    }\n}"
+		},
+		{
 			"step": "writeFile",
 			"path": "/wordpress/wp-content/mu-plugins/register-team-member-cpt.php",
 			"data": "<?php\nif ( ! post_type_exists( 'team-member' ) ) {\n    add_action( 'init', function () {\n        register_post_type( 'team-member', [\n            'label'        => 'Team Members',\n            'labels'       => [ 'name' => 'Team Members', 'singular_name' => 'Team Member', 'add_new_item' => 'Add New Team Member', 'edit_item' => 'Edit Team Member' ],\n            'public'       => true,\n            'show_in_rest' => true,\n            'supports'     => [ 'title', 'custom-fields' ],\n            'menu_icon'    => 'dashicons-businessperson',\n            'has_archive'  => false,\n            'rewrite'      => [ 'slug' => 'team-member' ],\n        ] );\n    } );\n}"
