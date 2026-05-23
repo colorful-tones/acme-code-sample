@@ -184,7 +184,7 @@ View Programs <img data-slug="arrow-right-children" data-icon="arrow-right" src=
 
 <!-- wp:acme/testimonial-slide {"quote":"Professional, responsive, and genuinely invested in our success. Highly recommend to anyone looking for real results.","name":"Taylor R.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-avatars/avatar2.jpg","photoId":48} /-->
 
-<!-- wp:acme/testimonial-slide {"quote":"Ex officia fugiat qui ex qui eu duis minim id sint nulla.","name":"Randal W.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/hero-avatars/avatar1.jpg","photoId":47,"rating":4} /-->
+<!-- wp:acme/testimonial-slide {"quote":"Ex officia fugiat qui ex qui eu duis minim id sint nulla.","name":"Randal W.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-avatars/avatar1.jpg","photoId":47,"rating":4} /-->
 <!-- /wp:acme/testimonial-slider --></div>
 <!-- /wp:group -->
 
