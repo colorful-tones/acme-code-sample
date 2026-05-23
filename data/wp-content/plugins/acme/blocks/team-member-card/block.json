@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acme/team-member-card",
+	"title": "Team Member Card",
+	"category": "widgets",
+	"description": "Displays a team member's avatar, name, credentials, job title, and department. Place inside a Team Members Query Loop.",
+	"icon": "id",
+	"textdomain": "acme-plugin",
+	"usesContext": ["postId", "postType"],
+	"supports": {
+		"html": false,
+		"align": false,
+		"inserter": false,
+		"color": {
+			"background": true,
+			"gradients": false,
+			"text": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalSkipSerialization": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"spacing": {
+			"blockGap": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"blockGap": true,
+				"padding": true
+			}
+		},
+		"layout": {
+			"default": {
+				"type": "flex",
+				"orientation": "horizontal"
+			},
+			"allowSwitching": false,
+			"allowEditing": false,
+			"allowInheriting": false
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acme/testimonial-slider",
+	"title": "Testimonial Slider",
+	"category": "widgets",
+	"description": "Auto-cycling accessible carousel displaying client testimonials with quote text, first name, optional circular photo, and 1–5 star rating.",
+	"icon": "format-quote",
+	"textdomain": "acme",
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"autoPlay": {
+			"type": "boolean",
+			"default": true
+		},
+		"interval": {
+			"type": "number",
+			"default": 4
+		},
+		"accentColor": {
+			"type": "string",
+			"default": "primary"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

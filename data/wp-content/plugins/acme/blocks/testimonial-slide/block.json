@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acme/testimonial-slide",
+	"title": "Testimonial Slide",
+	"category": "widgets",
+	"description": "A single testimonial entry with quote text, first name, optional circular photo, and 1–5 star rating. Must be used inside a Testimonial Slider block.",
+	"textdomain": "acme",
+	"parent": ["acme/testimonial-slider"],
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"attributes": {
+		"quote": {
+			"type": "string",
+			"default": ""
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"photo": {
+			"type": "string",
+			"default": ""
+		},
+		"photoId": {
+			"type": "number",
+			"default": 0
+		},
+		"rating": {
+			"type": "number",
+			"default": 5
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

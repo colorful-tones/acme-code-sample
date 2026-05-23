@@ -1,0 +1,66 @@
+/**
+ * Theme Name: ACME
+ * Author: Damon Cook
+ * Description: ACME Theme
+ * Tested up to: 6.9
+ * Requires PHP: 8.0
+ * Version: 1.0.0
+ * Text Domain: acme
+ */
+
+//-----------------------------------------
+// Global
+//-----------------------------------------
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+b,
+strong {
+	font-weight: var(--wp--custom--font-weight--semi-bold);
+}
+
+img,
+figure {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Sticky header */
+body:not(.wp-admin) header:has(>.is-position-sticky) {
+	position: sticky;
+	top: calc( 0px + var( --wp-admin--admin-bar--height, 0px ) );
+	z-index: 100;
+}
+
+/* Account for admin bar on mobile */
+@media (max-width: 600px) {
+
+	body.admin-bar header:has(>.is-position-sticky) {
+		top: 0;
+	}
+}
+
+/* Navigation [Desktop] */
+.wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
+	border: none;
+	box-shadow: var(--wp--custom--submenu--container--box-shadow);
+}
+
+.wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus,
+.wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+	background-color: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--neutral-100);
+}
+
+.wp-block-safe-svg-svg-icon .svg-transparent svg {
+	fill: transparent;
+}
