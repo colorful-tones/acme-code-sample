@@ -27,6 +27,16 @@
 		{
 			"step": "installPlugin",
 			"pluginZipFile": {
+				"resource": "wordpress.org/plugins",
+				"slug": "safe-svg"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
 				"resource": "url",
 				"url": "https://github.com/colorful-tones/acme-code-sample/releases/latest/download/acme-plugin.zip"
 			},
