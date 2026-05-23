@@ -6,46 +6,14 @@ A WordPress block theme (`themes/acme`) and companion plugin (`plugins/acme`) fo
 
 ## Live Demo
 
-[Open in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/colorful-tones/acme-code-sample/main/blueprint.json)
+1. Visit [Releases](https://github.com/colorful-tones/acme-code-sample/releases), and download attached `playground.zip`
+2. Visit [WordPress Playground](https://playground.wordpress.net)
+    - Click 4-square icon in top right, and choose: 'Import .zip'
+    - Find downloaded `playground.zip` and select it
 
-The demo lands on `/team/` — 12 seeded Team Member Cards inside a Query Loop using the `acme/team-member-card` dynamic block. Navigate to `/demo/` to see the Testimonial Slider. Both run against ACF Free (no Pro license required). Team member data is seeded via `runPHP` steps in `docs/blueprint.json`; post meta is set with `update_post_meta()` directly, bypassing ACF functions entirely so no Pro dependency exists at runtime.
+The demo opens on the home page which offers all of the custom blocks (testimonial slider, team member cards) and the modal button component (click the 'Speak with Admissions' button in hero area).
 
----
-
-## Local Setup
-
-1. Clone this repo into your `wp-content/` directory
-2. Install PHP dependencies: `composer install` (from `wp-content/`)
-3. Build JS/CSS: `cd plugins/acme && npm install && npm run build`
-4. Install and activate ACF Free 6.x (or ACF Pro — both work; Pro adds CPT UI and repeater field editing)
-5. Activate the `acme` plugin and `acme` theme
-6. In the WordPress admin, go to `ACF > Sync` to import field groups from JSON
-7. Seed team members: `wp eval-file data/create-team-members.php` (requires ACF Pro for repeater fields; use the blueprint for ACF Free)
-
----
-
-## Submission Release Instructions
-
-To host the Playground demo, create a GitHub release with two zip files:
-
-**Plugin zip** (`acme-plugin.zip`):
-
-```bash
-cd wp-content/plugins
-npm --prefix acme run build
-zip -r acme-plugin.zip acme/ --exclude "acme/node_modules/*"
-```
-
-> `build/` is gitignored so the zip must be created from a locally built working tree. The `assets/team-members/` avatar images (copied from `data/team-members/`) are tracked in git and will be included automatically. The blueprint's `runPHP` step reads them from `/wordpress/wp-content/plugins/acme/assets/team-members/` at Playground runtime.
-
-**Theme zip** (`acme-theme.zip`):
-
-```bash
-cd wp-content/themes
-zip -r acme-theme.zip acme/
-```
-
-Upload both to a GitHub release tagged `latest`. Update the URLs in `blueprint.json` if the repo name differs from `colorful-tones/acme-code-sample`.
+Data modelling is handled with ACF Free (no Pro license required). Team member data is seeded via `runPHP` steps in `blueprint.json`; post meta is set with `update_post_meta()` directly, bypassing ACF functions entirely so no Pro dependency exists at runtime.
 
 ---
 
@@ -178,3 +146,13 @@ A server-rendered block that displays a team member from a custom post type insi
 | CSS | SCSS + `theme.json` design tokens | Tokens enforce brand consistency across blocks |
 | Accessibility | ARIA carousel, focus trap, `inert`, `prefers-reduced-motion` | WCAG 2.1 AA target |
 | Block data | ACF local JSON | Version-controlled, team-shareable field definitions |
+
+## Local Setup
+
+1. Clone this repo into your `wp-content/` directory
+2. Install PHP dependencies: `composer install` (from `wp-content/`)
+3. Build JS/CSS: `cd plugins/acme && npm install && npm run build`
+4. Install and activate ACF Free 6.x (or ACF Pro — both work; Pro adds CPT UI and repeater field editing)
+5. Activate the `acme` plugin and `acme` theme
+6. In the WordPress admin, go to `ACF > Sync` to import field groups from JSON
+7. Seed team members: `wp eval-file data/create-team-members.php` (requires ACF Pro for repeater fields; use the blueprint for ACF Free)
