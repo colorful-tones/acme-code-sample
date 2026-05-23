@@ -1,0 +1,65 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "6.7"
+	},
+	"login": true,
+	"landingPage": "/team/",
+	"steps": [
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Serenity Path",
+				"blogdescription": "Structure support. Real recovery."
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org/plugins",
+				"slug": "advanced-custom-fields"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "url",
+				"url": "https://github.com/colorful-tones/acme-code-sample/releases/latest/download/acme-plugin.zip"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeZipFile": {
+				"resource": "url",
+				"url": "https://github.com/colorful-tones/acme-code-sample/releases/latest/download/acme-theme.zip"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/mu-plugins/register-team-member-cpt.php",
+			"data": "<?php\nif ( ! post_type_exists( 'team-member' ) ) {\n    add_action( 'init', function () {\n        register_post_type( 'team-member', [\n            'label'        => 'Team Members',\n            'labels'       => [ 'name' => 'Team Members', 'singular_name' => 'Team Member', 'add_new_item' => 'Add New Team Member', 'edit_item' => 'Edit Team Member' ],\n            'public'       => true,\n            'show_in_rest' => true,\n            'supports'     => [ 'title', 'custom-fields' ],\n            'menu_icon'    => 'dashicons-businessperson',\n            'has_archive'  => false,\n            'rewrite'      => [ 'slug' => 'team-member' ],\n        ] );\n    } );\n}"
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\nrequire_once ABSPATH . 'wp-admin/includes/image.php';\nrequire_once ABSPATH . 'wp-admin/includes/media.php';\nrequire_once ABSPATH . 'wp-admin/includes/file.php';\n$dir = '/wordpress/wp-content/plugins/acme/assets/team-members/';\n$imgs = ['avatar10.jpg','avatar11.jpg','avatar12.jpg','avatar13.jpg','avatar14.jpg','avatar16.jpg','avatar17.jpg','avatar2.jpg','avatar6.jpg','avatar7.jpg','avatar8.jpg','avatar9.jpg'];\n$members = [\n    ['name'=>'Dr. Kevin Park','job_title'=>'Executive Clinical Director','credentials'=>'PhD, LCSW, CADC-II','department'=>'leadership','featured'=>1,'order'=>1],\n    ['name'=>'Dr. Rachel Okafor','job_title'=>'Medical Director','credentials'=>'MD, FASAM','department'=>'medical','featured'=>1,'order'=>2],\n    ['name'=>'James Thornton','job_title'=>'Licensed Clinical Social Worker','credentials'=>'LCSW, EMDR','department'=>'clinical','featured'=>0,'order'=>1],\n    ['name'=>'Maria Santos','job_title'=>'Addiction Counselor','credentials'=>'CADC, MA','department'=>'clinical','featured'=>0,'order'=>2],\n    ['name'=>'Amanda Wilson','job_title'=>'Family Therapist','credentials'=>'LMFT','department'=>'clinical','featured'=>0,'order'=>3],\n    ['name'=>'Robert Chen','job_title'=>'Substance Use Counselor','credentials'=>'CADC-II, LPC','department'=>'clinical','featured'=>0,'order'=>4],\n    ['name'=>'Lisa Hammond','job_title'=>'Case Manager','credentials'=>'LCSW','department'=>'clinical','featured'=>0,'order'=>5],\n    ['name'=>'Dr. Thomas Brennan','job_title'=>'Staff Psychiatrist','credentials'=>'MD, MPH','department'=>'medical','featured'=>0,'order'=>1],\n    ['name'=>'Patricia Moore','job_title'=>'Director of Operations','credentials'=>'MBA','department'=>'administrative','featured'=>0,'order'=>1],\n    ['name'=>'Carlos Rivera','job_title'=>'Recovery Support Specialist','credentials'=>'CRSS','department'=>'support_staff','featured'=>0,'order'=>1],\n    ['name'=>'Stephanie Taylor','job_title'=>'Intake Coordinator','credentials'=>'','department'=>'administrative','featured'=>0,'order'=>2],\n    ['name'=>'Dr. Sarah Mitchell','job_title'=>'Registered Nurse, Detox Unit','credentials'=>'RN, CARN','department'=>'medical','featured'=>0,'order'=>2],\n];\nforeach ($members as $i => $m) {\n    $pid = wp_insert_post(['post_type'=>'team-member','post_title'=>$m['name'],'post_status'=>'publish']);\n    if (is_wp_error($pid)) continue;\n    $path = $dir . $imgs[$i];\n    if (file_exists($path)) {\n        $up = wp_upload_bits(basename($path), null, file_get_contents($path));\n        if (empty($up['error'])) {\n            $att_id = wp_insert_attachment(['post_mime_type'=>'image/jpeg','post_title'=>$m['name'],'post_status'=>'inherit'], $up['file'], $pid);\n            wp_update_attachment_metadata($att_id, wp_generate_attachment_metadata($att_id, $up['file']));\n            update_post_meta($pid, 'photo', $att_id);\n        }\n    }\n    update_post_meta($pid, 'job_title', $m['job_title']);\n    update_post_meta($pid, 'credentials', $m['credentials']);\n    update_post_meta($pid, 'department', $m['department']);\n    update_post_meta($pid, 'featured_team_member', $m['featured']);\n    update_post_meta($pid, 'display_order', $m['order']);\n}\nflush_rewrite_rules();"
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\n$qa = json_encode(['query'=>['perPage'=>12,'pages'=>0,'offset'=>0,'postType'=>'team-member','order'=>'asc','orderBy'=>'title','author'=>'','search'=>'','exclude'=>[],'sticky'=>'','inherit'=>false],'displayLayout'=>['type'=>'flex','columns'=>3],'align'=>'full']);\n$content = '<!-- wp:heading ' . json_encode(['level'=>2]) . ' --><h2 class=\"wp-block-heading\">Meet Our Team</h2><!-- /wp:heading -->';\n$content .= '<!-- wp:query ' . $qa . ' --><!-- wp:post-template --><!-- wp:acme/team-member-card /--><!-- /wp:post-template --><!-- /wp:query -->';\nwp_insert_post(['post_type'=>'page','post_title'=>'Our Team','post_name'=>'team','post_status'=>'publish','post_content'=>$content]);"
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\n$o = '<!-- wp:acme/testimonial-slide ';\n$c = ' /-->';\n$slides  = $o . json_encode(['quote' => 'Outstanding service from start to finish. They listened carefully and delivered exactly what we needed.', 'name' => 'Jordan L.', 'rating' => 5]) . $c;\n$slides .= $o . json_encode(['quote' => 'The team went above and beyond. I could not be happier with the results.', 'name' => 'Alex M.', 'rating' => 5]) . $c;\n$slides .= $o . json_encode(['quote' => 'Professional, responsive, and genuinely invested in our success. Highly recommend to anyone looking for real results.', 'name' => 'Taylor R.', 'rating' => 4]) . $c;\n$slides .= $o . json_encode(['quote' => 'From the first call to the day I left, every person showed genuine care. It changed my life.', 'name' => 'Randal W.', 'rating' => 5]) . $c;\n$content  = '<!-- wp:heading ' . json_encode(['level' => 2]) . ' --><h2 class=\"wp-block-heading\">What Our Clients Say</h2><!-- /wp:heading -->';\n$content .= '<!-- wp:acme/testimonial-slider ' . json_encode(['autoPlay' => true, 'interval' => 4, 'accentColor' => 'primary']) . ' -->' . $slides . '<!-- /wp:acme/testimonial-slider -->';\nwp_insert_post(['post_type' => 'page', 'post_title' => 'Testimonial Slider Demo', 'post_name' => 'demo', 'post_status' => 'publish', 'post_content' => $content]);"
+		}
+	]
+}
