@@ -23,7 +23,7 @@ Structure support.<br>Real recovery.</h1>
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"tagName":"button","className":"is-style-button-secondary","isModalEnabled":true,"patternId":274,"hasCustomModalHeading":true,"customModalHeading":"Speak to a specialist"} -->
-<div class="wp-block-button is-style-button-secondary" data-modal-enabled="true" data-pattern-id="274" data-custom-modal-heading="Speak to a specialist"><button type="button" class="wp-block-button__link wp-element-button">Speak with Admissions <img data-slug="arrow-right-general" data-icon="arrow-right" src="http://acme.local/wp-content/plugins/acme/assets/svg/arrow-right.svg" alt="" style="--icon-url: url(http://acme.local/wp-content/plugins/acme/assets/svg/arrow-right.svg); max-width: 16px; max-height: 16px;" class="wp-icon-inline"></button></div>
+<div class="wp-block-button is-style-button-secondary" data-modal-enabled="true" data-pattern-id="274" data-custom-modal-heading="Speak to a specialist"><button type="button" class="wp-block-button__link wp-element-button">Speak with Admissions <img data-slug="arrow-right-general" data-icon="arrow-right" src="<?php echo esc_url( get_site_url() ); ?>/wp-content/plugins/acme/assets/svg/arrow-right.svg" alt="" style="--icon-url: url(<?php echo esc_url( get_site_url() ); ?>/wp-content/plugins/acme/assets/svg/arrow-right.svg); max-width: 16px; max-height: 16px;" class="wp-icon-inline"></button></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -171,20 +171,20 @@ Structure support.<br>Real recovery.</h1>
 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 <div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
 <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button">
-View Programs <img data-slug="arrow-right-children" data-icon="arrow-right" src="http://acme.local/wp-content/themes/acme/assets/images/arrow-right.svg" alt="" style="--icon-url: url(http://acme.local/wp-content/plugins/acme/assets/svg/children/arrow-right.svg); max-width: 16px; max-height: 16px;" class="wp-icon-inline"></a></div>
+View Programs <img data-slug="arrow-right-children" data-icon="arrow-right" src="<?php echo esc_url( get_site_url() ); ?>/wp-content/themes/acme/assets/images/arrow-right.svg" alt="" style="--icon-url: url(<?php echo esc_url( get_site_url() ); ?>/wp-content/plugins/acme/assets/svg/children/arrow-right.svg); max-width: 16px; max-height: 16px;" class="wp-icon-inline"></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|regular","bottom":"var:preset|spacing|x-large"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--regular);padding-bottom:var(--wp--preset--spacing--x-large)"><!-- wp:acme/testimonial-slider -->
-<!-- wp:acme/testimonial-slide {"quote":"Outstanding service from start to finish. They listened carefully and delivered exactly what we needed.","name":"Jordan L.","photo":"http://acme.local/wp-content/uploads/2026/05/avatar3.jpg","photoId":49} /-->
+<!-- wp:acme/testimonial-slide {"quote":"Outstanding service from start to finish. They listened carefully and delivered exactly what we needed.","name":"Jordan L.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-avatars/avatar3.jpg","photoId":49} /-->
 
-<!-- wp:acme/testimonial-slide {"quote":"The team went above and beyond to make sure everything was perfect. I couldn't be happier with the results.","name":"Alex M.","photo":"http://acme.local/wp-content/uploads/2026/05/avatar4.jpg","photoId":50,"rating":3} /-->
+<!-- wp:acme/testimonial-slide {"quote":"The team went above and beyond to make sure everything was perfect. I couldn't be happier with the results.","name":"Alex M.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-avatars/avatar4.jpg","photoId":50,"rating":3} /-->
 
-<!-- wp:acme/testimonial-slide {"quote":"Professional, responsive, and genuinely invested in our success. Highly recommend to anyone looking for real results.","name":"Taylor R.","photo":"http://acme.local/wp-content/uploads/2026/05/avatar2.jpg","photoId":48} /-->
+<!-- wp:acme/testimonial-slide {"quote":"Professional, responsive, and genuinely invested in our success. Highly recommend to anyone looking for real results.","name":"Taylor R.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-avatars/avatar2.jpg","photoId":48} /-->
 
-<!-- wp:acme/testimonial-slide {"quote":"Ex officia fugiat qui ex qui eu duis minim id sint nulla.","name":"Randal W.","photo":"http://acme.local/wp-content/uploads/2026/05/avatar1.jpg","photoId":47,"rating":4} /-->
+<!-- wp:acme/testimonial-slide {"quote":"Ex officia fugiat qui ex qui eu duis minim id sint nulla.","name":"Randal W.","photo":"<?php echo esc_url( get_template_directory_uri() ); ?>/assets/hero-avatars/avatar1.jpg","photoId":47,"rating":4} /-->
 <!-- /wp:acme/testimonial-slider --></div>
 <!-- /wp:group -->
 
