@@ -1,0 +1,226 @@
+.wp-block-acme-testimonial-slider {
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.testimonial-viewport {
+	overflow: hidden;
+	position: relative;
+}
+
+.testimonial-track {
+	display: flex;
+	transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	will-change: transform;
+
+	&.no-transition {
+		transition: none;
+	}
+}
+
+.testimonial-slide {
+	background-color: var(--wp--preset--color--base);
+	box-sizing: border-box;
+	flex: 0 0 100%;
+	min-width: 0;
+	padding: var(--wp--preset--spacing--large) var(--wp--preset--spacing--xx-large);
+}
+
+.testimonial-quote {
+	color: var(--wp--preset--color--neutral-100);
+	font-size: var(--wp--preset--font-size--large);
+	line-height: 1.7;
+	margin-bottom: var(--wp--preset--spacing--regular);
+	position: relative;
+
+	&::before {
+		color: var(--wp--preset--color--neutral-300);
+		content: '\201C';
+		font-size: 3em;
+		line-height: 0;
+		margin-right: 0.1em;
+		opacity: 0.4;
+		vertical-align: -0.25em;
+	}
+}
+
+.testimonial-attribution {
+	align-items: center;
+	display: flex;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.testimonial-photo {
+	border: 2px solid var(--wp--preset--color--secondary-200);
+	border-radius: 50%;
+	flex-shrink: 0;
+	height: 54px;
+	object-fit: cover;
+	width: 54px;
+}
+
+.testimonial-name {
+	color: var(--wp--preset--color--secondary-100);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.testimonial-stars {
+	display: flex;
+	gap: 2px;
+	margin-top: 4px;
+
+	svg {
+		height: 18px;
+		width: 18px;
+	}
+
+	.star-filled {
+		fill: var(--wp--preset--color--primary-100);
+		stroke: var(--wp--preset--color--primary-100);
+	}
+
+	.star-empty {
+		fill: none;
+		opacity: 0.3;
+		stroke: currentcolor;
+	}
+}
+
+// Accent secondary variant
+.accent-secondary {
+
+	.testimonial-stars .star-filled {
+		fill: var(--wp--preset--color--secondary-100);
+		stroke: var(--wp--preset--color--secondary-100);
+	}
+}
+
+// Navigation arrows
+.testimonial-nav-arrow {
+	align-items: center;
+	background: var(--wp--preset--color--neutral-100);
+	border: 1px solid currentcolor;
+	border-radius: 50%;
+	color: var(--wp--preset--color--white);
+	cursor: pointer;
+	display: flex;
+	height: 44px;
+	justify-content: center;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+	width: 44px;
+	z-index: 2;
+
+	&:hover {
+		background-color: var(--wp--preset--color--neutral-0);
+		border-color: var(--wp--preset--color--neutral-0);
+		color: var(--wp--preset--color--white);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--primary);
+		outline-offset: 2px;
+	}
+
+	svg {
+		fill: none;
+		height: 20px;
+		stroke: currentcolor;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 2;
+		width: 20px;
+	}
+}
+
+.testimonial-nav-prev {
+	left: var(--wp--preset--spacing--x-small);
+}
+
+.testimonial-nav-next {
+	right: var(--wp--preset--spacing--x-small);
+}
+
+// Dots
+// Button is 32px, gap is 12px → centers are 44px apart.
+// ::after inset of 6px brings the hit area to 44px, so adjacent hit areas meet without overlap.
+.testimonial-dots {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+.testimonial-dot {
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	height: 24px;
+	padding: 0;
+	position: relative;
+	width: 24px;
+
+	// Visual dot indicator, centered inside the button.
+	&::before {
+		background: transparent;
+		border: 1px solid currentcolor;
+		border-radius: 50%;
+		content: '';
+		height: 12px;
+		left: 50%;
+		opacity: 0.4;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+		width: 12px;
+	}
+
+	// Extends hit area to 44×44px (WCAG 2.5.5). With 32px button + 12px gap,
+	// adjacent hit areas meet exactly at the midpoint — no overlap.
+	&::after {
+		content: '';
+		inset: -2px;
+		position: absolute;
+	}
+
+	&:hover::before {
+		opacity: 0.7;
+	}
+
+	&.is-active::before {
+		background-color: var(--wp--preset--color--primary);
+		border-color: var(--wp--preset--color--primary);
+		opacity: 1;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp--preset--color--primary);
+		outline-offset: 2px;
+	}
+}
+
+// Responsive
+@media (max-width: 600px) {
+
+	.testimonial-slide {
+		padding: var(--wp--preset--spacing--large) var(--wp--preset--spacing--xx-large);
+	}
+
+	.testimonial-nav-arrow {
+		height: 32px;
+		width: 32px;
+	}
+
+	.testimonial-photo {
+		height: 48px;
+		width: 48px;
+	}
+}

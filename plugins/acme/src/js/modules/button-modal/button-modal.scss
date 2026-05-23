@@ -1,0 +1,133 @@
+body.acme-js-modal--active {
+
+	// Prevent scrollbar from jumping when modal is active.
+	scrollbar-gutter: stable;
+}
+
+.acme-modal {
+	--button-modal-backdrop-background-color: var(--wp--custom--button-modal--backdrop-background-color, rgba(0, 0, 0, 0.7));
+	--button-modal-backdrop-blur: var(--wp--custom--button-modal--backdrop-blur, 0);
+	--button-modal-background-color: var(--wp--custom--button-modal--background-color, #fff);
+	--button-modal-border-color: var(--wp--custom--button-modal--border-color, #000);
+	--button-modal-border-radius: var(--wp--custom--button-modal--border-radius, 0);
+	--button-modal-border-style: var(--wp--custom--button-modal--border-style, solid);
+	--button-modal-border-width: var(--wp--custom--button-modal--border-width, 0);
+	--button-modal-color: var(--wp--custom--button-modal--color, #000);
+	--button-modal-heading-font-size: var(--wp--custom--button-modal--heading-font-size, 1.2rem);
+	--button-modal-heading-font-weight: var(--wp--custom--button-modal--heading-font-weight, 700);
+	--button-modal-max-width: var(--wp--custom--button-modal--max-width, 850px);
+	--button-modal-padding-x: var(--wp--custom--button-modal--padding-x, 1.25rem);
+	--button-modal-padding-y: var(--wp--custom--button-modal--padding-y, 1.25rem);
+
+	align-self: center;
+	animation: fadeIn 0.15s ease-in forwards;
+	background-color: var(--button-modal-background-color);
+	border-radius: var(--button-modal-border-radius);
+	border-color: var(--button-modal-border-color);
+	border-style: var(--button-modal-border-style);
+	border-width: var(--button-modal-border-width);
+	color: var(--button-modal-color);
+	display: flex;
+	font-size: 1.06rem;
+	max-height: calc(100vh - 90px);
+	line-height: 1.5;
+	margin: 0 auto;
+	max-width: var(--button-modal-max-width);
+	opacity: 1;
+	overscroll-behavior: contain;
+	padding: 0;
+	position: fixed;
+	scrollbar-color: var(--wp--preset--color--tertiary) transparent;
+	text-align: left;
+	top: 45px;
+	width: calc(100% - 62px);
+	z-index: 1050;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}
+
+.acme-modal h1,
+.acme-modal h2,
+.acme-modal h3,
+.acme-modal h4,
+.acme-modal h5,
+.acme-modal h6 {
+	color: var(--button-modal-color);
+}
+
+.acme-modal:not([open]) {
+	display: none;
+	opacity: 0;
+	position: absolute;
+}
+
+.acme-modal::backdrop {
+	animation: fadeIn 0.15s ease-in forwards;
+	backdrop-filter: blur(var(--button-modal-backdrop-blur));
+	background-color: var(--button-modal-backdrop-background-color);
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}
+
+.acme-modal__container {
+	flex-grow: 1;
+	padding: var(--button-modal-padding-y) var(--button-modal-padding-x) 45px;
+}
+
+.acme-modal__content {
+	display: block;
+	padding-bottom: 45px;
+}
+
+.acme-modal__header {
+	position: relative;
+	text-align: center;
+}
+
+.acme-modal__title {
+	font-size: var(--button-modal-heading-font-size);
+	font-weight: var(--button-modal-heading-font-weight);
+}
+
+.acme-modal__close {
+	align-items: center;
+	appearance: none;
+	background: none;
+	border: none;
+	color: var(--button-modal-color);
+	cursor: pointer;
+	display: flex;
+	height: 32px;
+	justify-content: center;
+	left: auto;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 32px;
+
+	@media (max-width: 768px) {
+		top: -24px;
+	}
+}
+
+.acme-modal__close-icon {
+	fill: currentcolor;
+	height: 16px;
+	width: 16px;
+}
+
+@keyframes fadeIn {
+
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
