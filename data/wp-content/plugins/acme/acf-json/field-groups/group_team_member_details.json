@@ -1,0 +1,554 @@
+{
+	"key": "group_682dae8f1a2b3",
+	"title": "Team Member Details",
+	"fields": [
+		{
+			"key": "field_682dae8f1b001",
+			"label": "Professional",
+			"name": "",
+			"aria-label": "",
+			"type": "tab",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_682dae8f1b024",
+			"label": "Photo",
+			"name": "photo",
+			"aria-label": "",
+			"type": "image",
+			"instructions": "Square headshot, 300×300 px minimum.",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "id",
+			"preview_size": "thumbnail",
+			"library": "all",
+			"min_width": 300,
+			"min_height": 300,
+			"min_size": "",
+			"max_width": "",
+			"max_height": "",
+			"max_size": "",
+			"mime_types": "jpg, jpeg, png, webp"
+		},
+		{
+			"key": "field_682dae8f1b002",
+			"label": "Job Title",
+			"name": "job_title",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "e.g. Licensed Clinical Social Worker, Addiction Counselor",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_682dae8f1b003",
+			"label": "Credentials",
+			"name": "credentials",
+			"aria-label": "",
+			"type": "text",
+			"instructions": "Abbreviations displayed after the name, e.g. LCSW, CADC, MS",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": "",
+			"placeholder": "LCSW, CADC",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_682dae8f1b004",
+			"label": "Department",
+			"name": "department",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "",
+			"required": 1,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"leadership": "Leadership",
+				"clinical": "Clinical",
+				"medical": "Medical",
+				"administrative": "Administrative",
+				"support_staff": "Support Staff"
+			},
+			"default_value": "",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 1,
+			"ui": 1,
+			"ajax": 0,
+			"placeholder": "Select a department"
+		},
+		{
+			"key": "field_682dae8f1b005",
+			"label": "Years of Experience",
+			"name": "years_experience",
+			"aria-label": "",
+			"type": "number",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"min": 0,
+			"max": "",
+			"step": 1,
+			"placeholder": "",
+			"prepend": "",
+			"append": "years"
+		},
+		{
+			"key": "field_682dae8f1b006",
+			"label": "Short Bio",
+			"name": "short_bio",
+			"aria-label": "",
+			"type": "textarea",
+			"instructions": "1-2 sentence summary shown on team grid cards.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"maxlength": 300,
+			"rows": 3,
+			"new_lines": "br",
+			"placeholder": ""
+		},
+		{
+			"key": "field_682dae8f1b025",
+			"label": "Full Biography",
+			"name": "biography",
+			"aria-label": "",
+			"type": "wysiwyg",
+			"instructions": "Full biography displayed on the team member’s individual page.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"tabs": "all",
+			"toolbar": "basic",
+			"media_upload": 0,
+			"delay": 0
+		},
+		{
+			"key": "field_682dae8f1b007",
+			"label": "Specializations",
+			"name": "specializations",
+			"aria-label": "",
+			"type": "repeater",
+			"instructions": "Areas of clinical focus or therapeutic expertise.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"layout": "table",
+			"pagination": 0,
+			"min": 0,
+			"max": 10,
+			"collapsed": "",
+			"button_label": "Add Specialization",
+			"rows_per_page": 20,
+			"sub_fields": [
+				{
+					"key": "field_682dae8f1b008",
+					"label": "Specialization",
+					"name": "specialization",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "e.g. Trauma-Informed Care, CBT, Family Therapy",
+					"prepend": "",
+					"append": ""
+				}
+			]
+		},
+		{
+			"key": "field_682dae8f1b009",
+			"label": "Education",
+			"name": "",
+			"aria-label": "",
+			"type": "tab",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_682dae8f1b010",
+			"label": "Education",
+			"name": "education",
+			"aria-label": "",
+			"type": "repeater",
+			"instructions": "Degrees and academic qualifications.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"layout": "block",
+			"pagination": 0,
+			"min": 0,
+			"max": 0,
+			"collapsed": "",
+			"button_label": "Add Degree",
+			"rows_per_page": 20,
+			"sub_fields": [
+				{
+					"key": "field_682dae8f1b011",
+					"label": "Degree",
+					"name": "degree",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "40",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "e.g. Master of Social Work",
+					"prepend": "",
+					"append": ""
+				},
+				{
+					"key": "field_682dae8f1b012",
+					"label": "Institution",
+					"name": "institution",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "40",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "e.g. University of Michigan",
+					"prepend": "",
+					"append": ""
+				},
+				{
+					"key": "field_682dae8f1b013",
+					"label": "Graduation Year",
+					"name": "graduation_year",
+					"aria-label": "",
+					"type": "number",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "20",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"min": 1950,
+					"max": 2030,
+					"step": 1,
+					"placeholder": "2010",
+					"prepend": "",
+					"append": ""
+				}
+			]
+		},
+		{
+			"key": "field_682dae8f1b014",
+			"label": "Certifications",
+			"name": "certifications",
+			"aria-label": "",
+			"type": "repeater",
+			"instructions": "Professional licenses and certifications.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"layout": "block",
+			"pagination": 0,
+			"min": 0,
+			"max": 0,
+			"collapsed": "",
+			"button_label": "Add Certification",
+			"rows_per_page": 20,
+			"sub_fields": [
+				{
+					"key": "field_682dae8f1b015",
+					"label": "Certification Name",
+					"name": "certification_name",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 1,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "e.g. Certified Alcohol and Drug Counselor",
+					"prepend": "",
+					"append": ""
+				},
+				{
+					"key": "field_682dae8f1b016",
+					"label": "Issuing Body",
+					"name": "issuing_body",
+					"aria-label": "",
+					"type": "text",
+					"instructions": "",
+					"required": 0,
+					"conditional_logic": 0,
+					"wrapper": {
+						"width": "50",
+						"class": "",
+						"id": ""
+					},
+					"default_value": "",
+					"maxlength": "",
+					"placeholder": "e.g. National Association for Addiction Professionals",
+					"prepend": "",
+					"append": ""
+				}
+			]
+		},
+		{
+			"key": "field_682dae8f1b017",
+			"label": "Contact & Social",
+			"name": "",
+			"aria-label": "",
+			"type": "tab",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_682dae8f1b018",
+			"label": "Languages Spoken",
+			"name": "languages_spoken",
+			"aria-label": "",
+			"type": "checkbox",
+			"instructions": "Select all languages this team member is fluent in.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"english": "English",
+				"spanish": "Spanish",
+				"french": "French",
+				"mandarin": "Mandarin",
+				"cantonese": "Cantonese",
+				"arabic": "Arabic",
+				"portuguese": "Portuguese",
+				"tagalog": "Tagalog",
+				"vietnamese": "Vietnamese",
+				"korean": "Korean"
+			},
+			"default_value": ["english"],
+			"return_format": "value",
+			"allow_custom": 1,
+			"layout": "horizontal",
+			"toggle": 0,
+			"save_custom": 1
+		},
+		{
+			"key": "field_682dae8f1b019",
+			"label": "Email Address",
+			"name": "email_address",
+			"aria-label": "",
+			"type": "email",
+			"instructions": "Public-facing contact email. Leave blank to omit from the website.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		},
+		{
+			"key": "field_682dae8f1b020",
+			"label": "LinkedIn URL",
+			"name": "linkedin_url",
+			"aria-label": "",
+			"type": "url",
+			"instructions": "Full LinkedIn profile URL.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": "https://www.linkedin.com/in/..."
+		},
+		{
+			"key": "field_682dae8f1b021",
+			"label": "Display",
+			"name": "",
+			"aria-label": "",
+			"type": "tab",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"placement": "top",
+			"endpoint": 0
+		},
+		{
+			"key": "field_682dae8f1b022",
+			"label": "Featured Team Member",
+			"name": "featured_team_member",
+			"aria-label": "",
+			"type": "true_false",
+			"instructions": "Featured members appear prominently on the homepage or landing pages.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"message": "",
+			"default_value": 0,
+			"ui": 1,
+			"ui_on_text": "Yes",
+			"ui_off_text": "No"
+		},
+		{
+			"key": "field_682dae8f1b023",
+			"label": "Display Order",
+			"name": "display_order",
+			"aria-label": "",
+			"type": "number",
+			"instructions": "Lower numbers appear first within their department. Leave blank to sort alphabetically.",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "50",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"min": 0,
+			"max": "",
+			"step": 1,
+			"placeholder": "",
+			"prepend": "",
+			"append": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "post_type",
+				"operator": "==",
+				"value": "team-member"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "Custom fields for the Meet the Team section of the rehab center website.",
+	"show_in_rest": 0,
+	"modified": 1779494400
+}

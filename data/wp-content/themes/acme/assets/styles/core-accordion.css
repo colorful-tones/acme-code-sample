@@ -1,0 +1,23 @@
+/* ----------------------------
+ * Accordion
+ * ----------------------------
+ */
+.wp-block-accordion-heading__toggle-icon {
+	transition: none !important;
+}
+
+.wp-block-accordion-item:not(.is-open) .wp-block-accordion-heading__toggle-icon .accordion-icon--minus {
+	display: none;
+}
+
+.wp-block-accordion-item.is-open .wp-block-accordion-heading__toggle-icon .accordion-icon--minus {
+	display: block;
+}
+
+.wp-block-accordion-item.is-open .wp-block-accordion-heading__toggle-icon .accordion-icon--plus {
+	display: none;
+}
+
+.wp-block-accordion-item.is-open > .wp-block-accordion-heading .wp-block-accordion-heading__toggle-icon {
+	transform: none;
+}
